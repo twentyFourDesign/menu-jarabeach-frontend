@@ -14,7 +14,7 @@ const experienceLinks = [
 ];
 export default function Footer() {
   return (
-    <div className="max-w-screen-2xl font-inter bg-[#9DD4D3] px-[6.5rem] py-[3.5rem] ">
+    <div className="max-w-screen-2xl font-inter mx-auto bg-[#9DD4D3] px-[6.5rem] py-[3.5rem] ">
       {/* // content */}
       <div className="grid grid-cols-3 ">
         {/* //logo */}
@@ -43,6 +43,17 @@ export default function Footer() {
         </div>
         <div>
           <img src={logo2} className="w-80 h-20 object-contain" />
+        </div>
+      </div>
+      <div className="text-center grid grid-cols-3 font-raleway mt-[10rem]">
+        <div></div>
+        <div>
+          <p>© Jara beach resort</p>
+          <p>Owned and operated by Little Company Nigeria Limited</p>
+        </div>
+        <div>
+          <p>RC 1424441</p>
+          <p>TIN 20505177</p>
         </div>
       </div>
     </div>

@@ -1,11 +1,11 @@
 import { apiEndpoints, queryKeys, useGetQuery } from '@services';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import CategoryCard from './CategoryCard';
 
 export default function Categories() {
   const [searchParams, setSearchParams] = useSearchParams();
-
+  const [selected, setSelected] = useState('');
   let category = searchParams.get('category');
 
   const { data: itemsListing, refetch: itemsListingRefetch } = useGetQuery(
@@ -19,6 +19,7 @@ export default function Categories() {
   const { data: categoriesListing } = useGetQuery(queryKeys.CATEGORIES_LISTING, apiEndpoints.CATEGORIES_LISTING);
 
   function handleCategorySelect(category) {
+    setSelected(category);
     setSearchParams({
       category,
     });
@@ -46,7 +47,9 @@ export default function Categories() {
           {categoriesListing?.data?.results?.map(category => (
             <li
               onClick={() => handleCategorySelect(category?.name)}
-              className="rounded-full  cursor-pointer text-[#01A3D2] list-none border border-sky-100  px-[10px]  py-0.5  bg-[#EEEEEE]"
+              className={`rounded-full ${
+                selected === category.name ? 'bg-[#FFD664]' : ''
+              }  cursor-pointer text-[#01A3D2] list-none border border-sky-100  px-[10px]  py-0.5  bg-[#EEEEEE]`}
               key={category?.id}
             >
               {category?.name}
