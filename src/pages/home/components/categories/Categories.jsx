@@ -33,13 +33,8 @@ export default function Categories() {
   return (
     <div className="mt-[4.25rem] px-[6.25rem] font-raleway">
       <p className="text-[2rem] font-normal leading-10 font-inter">Categories</p>
-      <p className="leading-5 mt-3 font-inter">Explore menu items under each category </p>
-      <p
-        className={`text-[2rem]  leading-9 
-        }  font-normal mt-10 mb-8`}
-      >
-        All Categories
-      </p>
+      <p className="leading-5 mt-3 font-inter text-[#7C8F96]">Explore menu items under each category </p>
+
       {/* categories list slection */}
       <div className="my-8">
         <ul className="flex gap-3 flex-wrap">
@@ -65,6 +60,12 @@ export default function Categories() {
         </ul>
       </div>
       <div>
+        <p
+          className={`text-[2rem] text-[#FFD664] leading-9 
+          font-normal mt-10 mb-8`}
+        >
+          {selected === '' ? 'All Categories' : selected}
+        </p>
         <CategoryCard items={itemsListing} />
       </div>
     </div>
