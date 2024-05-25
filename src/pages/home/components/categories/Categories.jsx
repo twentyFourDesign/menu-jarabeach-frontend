@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
-import CategoryCard from './CategoryCard';
 import { apiEndpoints, queryKeys, useGetQuery } from '@services';
+import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import CategoryCard from './CategoryCard';
 
 export default function Categories() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -30,9 +30,9 @@ export default function Categories() {
   }, [category]);
 
   return (
-    <div className="mt-[4.25rem] px-[6.25rem]">
-      <p className="text-[2rem] font-normal leading-10">Categories</p>
-      <p className="leading-5 mt-3">Explore menu items under each category </p>
+    <div className="mt-[4.25rem] px-[6.25rem] font-raleway">
+      <p className="text-[2rem] font-normal leading-10 font-inter">Categories</p>
+      <p className="leading-5 mt-3 font-inter">Explore menu items under each category </p>
       <p className="text-[2rem]  leading-9 text-[#FFD664] font-normal mt-10 mb-8">All Categories</p>
       {/* categories list slection */}
       <div className="my-8">

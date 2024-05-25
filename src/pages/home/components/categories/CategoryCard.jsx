@@ -10,7 +10,7 @@ export default function CategoryCard({ items }) {
           .map((category, index) => (
             <div key={index}>
               {/* Category name */}
-              <div className="flex my-8 items-center gap-2">
+              <div className="flex my-8  items-center gap-2">
                 <p>{category.category}</p>
                 <div className="border h-1 bg-[#01A3D2] flex-1"></div>
               </div>

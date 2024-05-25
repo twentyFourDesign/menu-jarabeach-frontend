@@ -4,7 +4,7 @@ import sign from '../../../../assets/images/sign.png';
 
 export default function AboutUs() {
   return (
-    <div className="bg-[#FFD664]">
+    <div className="bg-[#FFD664] font-raleway">
       <div className="max-w-screen-2x flex ">
         <div className="flex-1">
           <img src={about} className="object-contian bg-center h-50" />

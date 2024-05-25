@@ -6,6 +6,10 @@ export default {
       colors: {
         blueGreen: '#8CD7D3',
       },
+      fontFamily: {
+        raleway: ['Raleway', 'sans-serif'],
+        inter:["Inter", "sans-serif"]
+      },
     },
   },
   plugins: [],
