@@ -17,8 +17,8 @@ export default function CategoryCard({ items }) {
               {/* Cards */}
               <div className="grid grid-cols-4 gap-6">
                 {category.list.map(item => (
-                  <div key={item.id} className="p-4 flex rounded-xl border-1 bg-white flex-col gap-2">
-                    <p className="h-8">{item.name}</p>
+                  <div key={item.id} className="p-4 flex flex-col rounded-xl border-1 bg-white  gap-2">
+                    <p>{item.name}</p>
                     <div className="flex items-center">
                       <span className="text-[9px] text-[#7C8F96]">NGN</span>
                       <p className="text-[22px] leading-6 font-bold">{item.price}</p>
