@@ -8,6 +8,7 @@ import App from './App.jsx';
 import { version } from '../package.json';
 import { ENABLE } from '@constants';
 import 'react-toastify/dist/ReactToastify.css';
+import './index.css'
 
 const queryClient = new QueryClient();
 
