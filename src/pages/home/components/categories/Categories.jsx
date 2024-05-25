@@ -5,7 +5,7 @@ import CategoryCard from './CategoryCard';
 
 export default function Categories() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [selected, setSelected] = useState('all');
+  const [selected, setSelected] = useState('');
   let category = searchParams.get('category');
 
   const { data: itemsListing, refetch: itemsListingRefetch } = useGetQuery(
@@ -35,9 +35,7 @@ export default function Categories() {
       <p className="text-[2rem] font-normal leading-10 font-inter">Categories</p>
       <p className="leading-5 mt-3 font-inter">Explore menu items under each category </p>
       <p
-        onClick={() => handleCategorySelect('all')}
-        className={`text-[2rem]  leading-9 ${
-          selected === 'all' ? 'bg-[#FFD664] text-black' : ''
+        className={`text-[2rem]  leading-9 
         }  font-normal mt-10 mb-8`}
       >
         All Categories
@@ -47,7 +45,9 @@ export default function Categories() {
         <ul className="flex gap-3 flex-wrap">
           <li
             onClick={() => handleCategorySelect('')}
-            className="rounded-full  cursor-pointer text-black list-none border border-sky-100  px-[10px]  py-0.5  bg-[#ffd664]"
+            className={`rounded-full ${
+              selected === '' ? 'bg-[#FFD664] text-black' : ''
+            }  cursor-pointer text-[#01A3D2] list-none border border-sky-100  px-[10px]  py-0.5  bg-[#EEEEEE]`}
           >
             All Categories
           </li>
