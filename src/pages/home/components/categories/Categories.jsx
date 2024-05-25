@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
-import CategoryCard from './CategoryCard';
 import { apiEndpoints, queryKeys, useGetQuery } from '@services';
+import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import CategoryCard from './CategoryCard';
 
 export default function Categories() {
   const [searchParams, setSearchParams] = useSearchParams();
-
+  const [selected, setSelected] = useState('');
   let category = searchParams.get('category');
 
   const { data: itemsListing, refetch: itemsListingRefetch } = useGetQuery(
@@ -19,6 +19,7 @@ export default function Categories() {
   const { data: categoriesListing } = useGetQuery(queryKeys.CATEGORIES_LISTING, apiEndpoints.CATEGORIES_LISTING);
 
   function handleCategorySelect(category) {
+    setSelected(category);
     setSearchParams({
       category,
     });
@@ -30,9 +31,9 @@ export default function Categories() {
   }, [category]);
 
   return (
-    <div className="mt-[4.25rem] px-[6.25rem]">
-      <p className="text-[2rem] font-normal leading-10">Categories</p>
-      <p className="leading-5 mt-3">Explore menu items under each category </p>
+    <div className="mt-[4.25rem] px-[6.25rem] font-raleway">
+      <p className="text-[2rem] font-normal leading-10 font-inter">Categories</p>
+      <p className="leading-5 mt-3 font-inter">Explore menu items under each category </p>
       <p className="text-[2rem]  leading-9 text-[#FFD664] font-normal mt-10 mb-8">All Categories</p>
       {/* categories list slection */}
       <div className="my-8">
@@ -46,7 +47,9 @@ export default function Categories() {
           {categoriesListing?.data?.results?.map(category => (
             <li
               onClick={() => handleCategorySelect(category?.name)}
-              className="rounded-full  cursor-pointer text-[#01A3D2] list-none border border-sky-100  px-[10px]  py-0.5  bg-[#EEEEEE]"
+              className={`rounded-full ${
+                selected === category.name ? 'bg-[#FFD664]' : ''
+              }  cursor-pointer text-[#01A3D2] list-none border border-sky-100  px-[10px]  py-0.5  bg-[#EEEEEE]`}
               key={category?.id}
             >
               {category?.name}
