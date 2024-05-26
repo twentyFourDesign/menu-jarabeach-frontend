@@ -5,12 +5,12 @@ import sign from '../../../../assets/images/sign.png';
 export default function AboutUs() {
   return (
     <div className="bg-[#FFD664] font-raleway">
-      <div className="max-w-screen-2xl mx-auto flex ">
-        <div className="flex-1">
+      <div className=" mx-auto flex ">
+        <div className="">
           <img src={about} className="object-contain  " />
         </div>
         <div className="flex-1 relative">
-          <div className="pl-[43px] pr-[6.25rem] pt-[8rem]">
+          <div className="pl-[43px] pr-[6.25rem] pt-[9rem]">
             <img src={sebi} className="w-[15rem] block mb-6" />
             <p className="text-lg ">
               Jara provides three full meals a day, drinks (both alcoholic and soft), sweet treats and a snack station
