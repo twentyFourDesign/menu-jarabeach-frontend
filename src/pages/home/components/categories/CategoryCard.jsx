@@ -28,7 +28,7 @@ export default function CategoryCard({ items }) {
               </div>
             </div>
           ))
-      )}
+      )}``
     </div>
   );
 }
