@@ -4,31 +4,29 @@ import sign from '../../../../assets/images/sign.png';
 
 export default function AboutUs() {
   return (
-    <div className="bg-[#FFD664] font-raleway">
-      <div className=" mx-auto flex ">
-        <div className="">
-          <img src={about} className="object-contain  " />
+    <div className="flex bg-[#FFD664] font-raleway">
+      <div className="flex-1 bg-red-500 relative">
+        <img src={about} className="w-full h-[600px] xl:h-[800px] object-cover object-center" />
+      </div>
+      <div className="flex-1 flex flex-col justify-center relative">
+        <div className="pl-12 pr-20">
+          <img src={sebi} className="w-[15rem] block mb-6" />
+          <p className="text-lg">
+            Jara provides three full meals a day, drinks (both alcoholic and soft), sweet treats and a snack station
+            available throughout the day. Meals are cooked to order, guaranteeing the freshest most delicious cuisine -
+            a fusion of international favourites and locally sourced ingredients – from the land and the sea. The
+            Restaurant Menu serves Lunch and Dinner for our overnight guests with BBQ and Fiesta feasts on nights with
+            higher occupancy. All Menus shown here <span className="font-bold">menu.jarabeachresort.com.</span> If you
+            have any special requests / dietary requirements, please let us know ahead of your visit.
+          </p>
+          <p className="mt-8 text-lg">
+            We have multiple varied items for our overnight guests. Day Pass visitors enjoy BBQ lunch served "family
+            style", as do overnight guests on alternate days. Breakfast orders are taken after dinner the night before
+            to ensure you receive what you'd like, where you'd like, at a time you like - ensuring a relaxing start to
+            your day.
+          </p>
         </div>
-        <div className="flex-1 relative">
-          <div className="pl-[43px] pr-[6.25rem] pt-[9rem]">
-            <img src={sebi} className="w-[15rem] block mb-6" />
-            <p className="text-lg ">
-              Jara provides three full meals a day, drinks (both alcoholic and soft), sweet treats and a snack station
-              available throughout the day. Meals are cooked to order, guaranteeing the freshest most delicious cuisine
-              - a fusion of international favourites and locally sourced ingredients – from the land and the sea. The
-              Restaurant Menu serves Lunch and Dinner for our overnight guests with BBQ and Fiesta feasts on nights with
-              higher occupancy. All Menus shown here <span className="bold">menu.jarabeachresort.com.</span> If you have
-              any special requests / dietary requirements, please let us know ahead of your visit.
-            </p>
-            <p className="mt-8 text-lg">
-              We have multiple varied items for our overnight guests. Day Pass visitors enjoy BBQ lunch served "family
-              style", as do overnight guests on alternate days. Breakfast orders are taken after dinner the night before
-              to ensure you receive what you'd like, where you'd like, at a time you like - ensuring a relaxing
-              start to your day.
-            </p>
-          </div>
-          <img src={sign} className=" absolute top-0 left-0" />
-        </div>
+        <img src={sign} className="absolute top-0 right-0 h-[25rem] w-[40rem]" />
       </div>
     </div>
   );
