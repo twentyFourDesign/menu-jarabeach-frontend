@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 import CategoryModal from './CategoryModal';
+import { useFormikForm } from '@common/hooks';
 import { apiEndpoints, queryKeys, useDeleteMutation, useGetQuery, usePostMutation, usePutMutation } from '@services';
 import { categoryValidationSchema, categoryInitialValues } from '@utils';
-import { useFormikForm } from '@common/hooks';
-import { toast } from 'react-toastify';
 import { CATEGORY_CREATE_ERROR, CATEGORY_EDIT_ERROR, SUCCESS_TOAST } from '@constants';
 
 const CategoryTable = () => {

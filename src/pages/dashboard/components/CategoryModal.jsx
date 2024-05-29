@@ -1,5 +1,5 @@
-import Modal from '@common/components/modal/Modal';
 import React from 'react';
+import Modal from '@common/components/modal/Modal';
 import { CustomInput } from '@common/components';
 
 const CategoryModal = ({ onOpen, setOnOpen, values, handleChange, handleSubmit, errors, touched, editMode }) => {

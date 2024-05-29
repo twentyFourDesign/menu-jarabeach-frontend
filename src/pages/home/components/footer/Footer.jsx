@@ -15,7 +15,7 @@ const experienceLinks = [
 export default function Footer() {
   return (
     <div className="bg-[#9DD4D3]">
-      <div className=" font-inter mx-auto  px-[6.5rem] py-[3.5rem] ">
+      <div className=" font-inter mx-auto  lg:px-[6.5rem] py-[3.5rem] ">
         {/* // content */}
         <div className="grid grid-cols-3 ">
           {/* //logo */}
@@ -34,19 +34,19 @@ export default function Footer() {
             </div>
 
             <div>
-              <p className="leading-[24px] text-[18px] font-sembibold tracking-[0.3px] mb-4 ">Experience</p>
+              <p className="leading-[24px]  text-[18px] font-sembibold tracking-[0.3px] mb-4 ">Experience</p>
               {experienceLinks.map((link, index) => (
-                <li key={index} className="list-none">
+                <li key={index} className="list-none text-[16px] sm:[10px]">
                   {link}
                 </li>
               ))}
             </div>
           </div>
           <div>
-            <img src={logo2} className="w-80 h-20 object-contain" />
+            <img  src={logo2} className="w-80 h-20 object-contain xs:hidden sm:block"  />
           </div>
         </div>
-        <div className="text-center grid grid-cols-3 font-raleway mt-[10rem]">
+        <div className="text-center grid sm:grid-cols-4 lg::grid-cols-3 xs:grid-cols-6 font-raleway mt-[10rem]">
           <div></div>
           <div>
             <p>© Jara beach resort</p>

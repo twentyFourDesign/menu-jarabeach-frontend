@@ -6,9 +6,12 @@ export default {
       colors: {
         blueGreen: '#8CD7D3',
       },
+      screens: {
+        'xs': '200px', // Define your extra small breakpoint
+      },
       fontFamily: {
         raleway: ['Raleway', 'sans-serif'],
-        inter:["Inter", "sans-serif"]
+        inter:['Inter', 'sans-serif']
       },
     },
   },

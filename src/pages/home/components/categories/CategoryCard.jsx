@@ -8,20 +8,21 @@ export default function CategoryCard({ items }) {
         items?.data?.results
           .filter(category => category.list.length > 0)
           .map((category, index) => (
-            <div key={index}>
+            <div key={index} className="my-8 mx-auto max-w-screen-lg px-4">
               {/* Category name */}
-              <div className="flex my-8  items-center gap-2">
+              <div className="flex items-center gap-2">
                 <p className="text-[#01A3D2]">{category.category}</p>
                 <div className="border border-[#01A3D2] flex-1"></div>
               </div>
               {/* Cards */}
-              <div className="grid grid-cols-4 gap-6">
+              <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {category.list.map(item => (
-                  <div key={item.id} className="p-4 text-[14px] flex flex-col rounded-xl border-1 bg-white  gap-2">
+                  <div key={item.id} className="p-4 text-[14px] border-2 border-black flex flex-col rounded-xl border-1 bg-white gap-2">
                     <p>{item.name}</p>
                     <div className="flex items-center">
                       <span className="text-[9px] font-raleway text-[#7C8F96]">NGN</span>
-                      <p className="text-[22px] font-raleway leading-6 font-bold">{item.price}</p>
+                      <p className="text-[25px] p-2 font-raleway leading-6 font-bold">{item.price}</p>
+                      <p><img src={item.image} alt="" /></p>
                     </div>
                   </div>
                 ))}

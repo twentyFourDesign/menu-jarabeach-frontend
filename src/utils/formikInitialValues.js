@@ -6,4 +6,5 @@ export const itemsInitialValues = {
   name: '',
   price: '',
   categoryName: '',
+  image: null
 };

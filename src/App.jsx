@@ -1,10 +1,10 @@
+import { useState } from 'react';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Dashboard from '@pages/dashboard/Dashboard';
 import { Home } from '@pages/home';
 import { ROUTES } from '@routes';
 import { useSentry, useSetupAxios } from '@services';
 import { AppContext } from '@useContext';
-import { useState } from 'react';
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
 function App() {
   useSetupAxios();
