@@ -1,7 +1,7 @@
 // original code
 import axios from 'axios';
 
-const getUrl = relativeUrl => `${import.meta.env.VITE_BACKEND_BASE_URL}${relativeUrl}`;
+const getUrl = relativeUrl => `${import.meta.env.MENU_API_BASE_URL}${relativeUrl}`;
 
 
 export const performGetRequest = (url, params = {}) => axios.get(getUrl(url), { params });
