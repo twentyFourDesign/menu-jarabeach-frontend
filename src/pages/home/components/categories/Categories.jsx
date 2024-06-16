@@ -125,13 +125,13 @@ export default function Categories() {
           </li>
           {categoriesListing?.data?.results?.map(category => (
             <li
-              onClick={() => handleCategorySelect(category?.name)}
+              onClick={() => handleCategorySelect(category?.category_name)}
               className={`rounded-full ${
-                selected === category.name ? 'bg-[#FFD664] text-black' : ''
+                selected === category.category_name ? 'bg-[#FFD664] text-black' : ''
               }  cursor-pointer text-[#01A3D2] list-none border border-sky-100  px-[10px]  py-0.5  bg-[#EEEEEE]`}
               key={category?.id}
             >
-              {category?.name}
+              {category?.category_name}
             </li>
           ))}
         </ul>
