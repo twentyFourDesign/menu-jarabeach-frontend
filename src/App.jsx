@@ -7,8 +7,8 @@ import { useSentry, useSetupAxios } from '@services';
 import { AppContext } from '@useContext';
 
 function App() {
-  useSetupAxios();
-  useSentry();
+  // useSetupAxios();
+  // useSentry();
 
   // eslint-disable-next-line no-unused-vars
   const [permissions, setPermissions] = useState('');
