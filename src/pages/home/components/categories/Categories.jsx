@@ -78,21 +78,26 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import CategoryCard from './CategoryCard';
 import { apiEndpoints, queryKeys, useGetQuery } from '@services';
+// import { getCategoriesAPI } from '../../services/apiService';
+import { getCategoriesAPI } from '@services/apiService';
+import { getMenuItemsAPI } from '@services/apiService';
 
 export default function Categories() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [selected, setSelected] = useState('');
   let category = searchParams.get('category');
 
-  const { data: itemsListing, refetch: itemsListingRefetch } = useGetQuery(
-    queryKeys.ITEMS_LISTING,
-    apiEndpoints.ITEMS_LISTING_FILTERED,
-    {
-      category,
-    }
-  );
+  // const { data: itemsListing, refetch: itemsListingRefetch } = useGetQuery(
+  //   queryKeys.ITEMS_LISTING,
+  //   apiEndpoints.ITEMS_LISTING_FILTERED,
+  //   {
+  //     category,
+  //   }
+  // );
 
-  const { data: categoriesListing } = useGetQuery(queryKeys.CATEGORIES_LISTING, apiEndpoints.CATEGORIES_LISTING);
+  // const { data: categoriesListing } = useGetQuery(queryKeys.CATEGORIES_LISTING, apiEndpoints.CATEGORIES_LISTING);
+  const [categoriesListing, setCategoriesListing] = useState([]);
+  const [itemsListing, setItemsListing] = useState([]);
 
   function handleCategorySelect(category) {
     setSelected(category);
@@ -102,7 +107,22 @@ export default function Categories() {
   }
 
   useEffect(() => {
-    itemsListingRefetch();
+    const fetchData = async () => {
+      const categories = await getCategoriesAPI();
+      const menu_itmes = await getMenuItemsAPI();
+      console.log(categories);
+      if(categories) {
+        setCategoriesListing(categories);
+      }
+      console.log(menu_itmes.data.items);
+      if(menu_itmes) {
+        setItemsListing(menu_itmes);
+      }
+    };
+
+    fetchData();
+
+    // itemsListingRefetch();
     if (!category) setSearchParams({});
   }, [category]);
 
@@ -123,13 +143,13 @@ export default function Categories() {
           >
             All Categories
           </li>
-          {categoriesListing?.data?.results?.map(category => (
+          {categoriesListing?.data?.items?.map((category, index) => (
             <li
               onClick={() => handleCategorySelect(category?.category_name)}
               className={`rounded-full ${
                 selected === category.category_name ? 'bg-[#FFD664] text-black' : ''
               }  cursor-pointer text-[#01A3D2] list-none border border-sky-100  px-[10px]  py-0.5  bg-[#EEEEEE]`}
-              key={category?.id}
+              key={index}
             >
               {category?.category_name}
             </li>
@@ -143,7 +163,7 @@ export default function Categories() {
         >
           {selected === '' ? 'All Categories' : selected}
         </p>
-        <CategoryCard items={itemsListing} />
+        <CategoryCard categories = {categoriesListing} items={itemsListing} />
       </div>
     </div>
   );
