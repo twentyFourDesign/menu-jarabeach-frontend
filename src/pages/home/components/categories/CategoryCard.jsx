@@ -63,12 +63,13 @@
 
 
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export default function CategoryCard({ categories, items }) {
+export default function CategoryCard({ categories, items, selected }) {
   // State to track modal visibility and selected item
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState('');
 
   // Function to handle click on the title
   const handleTitleClick = (item) => {
@@ -82,6 +83,10 @@ export default function CategoryCard({ categories, items }) {
     setSelectedItem(null);
   };
 
+  useEffect(() => {
+
+  }, [selected]);
+
   return (
     <div className="my-8 px-4">
       {/* Check if there are any results */}
@@ -89,33 +94,37 @@ export default function CategoryCard({ categories, items }) {
         <p>No Items.</p>
       ) : (
         categories?.data?.items
-          .map((category, index) => (
-            <div key={index}>
-              {/* Category name */}
-              <div className="flex my-8 items-center gap-2">
-                <p className="text-[#01A3D2]">{category.category_name}</p>
-                <div className="border border-[#01A3D2] flex-1"></div>
-              </div>
-              {/* Cards */}
-              <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                {items?.data?.items.map((item) => {
-                  if(item.menu_item_category_id == category.category_id) {
-                    return(
-                      <div key={item.id} className="p-4 text-[14px] border-2  flex flex-col rounded-xl bg-white gap-2">
-                        {/* Title with click event */}
-                        <p onClick={() => handleTitleClick(item)} className="cursor-pointer">{item.menu_item_title}</p>
-                        {/* End of Title */}
-                        <div className="flex items-center">
-                          <span className="text-[9px] font-raleway text-[#7C8F96]">NGN</span>
-                          <p className="text-[25px] p-2 font-raleway leading-6 font-bold">{item.menu_item_cost}</p>
-                        </div>
-                      </div>
-                    );
-                  }
-                })}
-              </div>
-            </div>
-          ))
+          .map((category, index) => {
+            if(selected === '' || parseInt(selected) == category.category_id){
+              return(
+                <div key={index}>
+                  {/* Category name */}
+                  <div className="flex my-8 items-center gap-2">
+                    <p className="text-[#01A3D2]">{category.category_name}</p>
+                    <div className="border border-[#01A3D2] flex-1"></div>
+                  </div>
+                  {/* Cards */}
+                  <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    {items?.data?.items.map((item) => {  
+                      if(item.menu_item_category_id == category.category_id) {
+                        return(
+                          <div key={item.id} className="p-4 text-[14px] border-2  flex flex-col rounded-xl bg-white gap-2">
+                            {/* Title with click event */}
+                            <p onClick={() => handleTitleClick(item)} className="cursor-pointer">{item.menu_item_title}</p>
+                            {/* End of Title */}
+                            <div className="flex items-center">
+                              <span className="text-[9px] font-raleway text-[#7C8F96]">NGN</span>
+                              <p className="text-[25px] p-2 font-raleway leading-6 font-bold">{item.menu_item_cost}</p>
+                            </div>
+                          </div>
+                        );
+                      }
+                    })}
+                  </div>
+                </div>
+              );
+            }
+          })
       )}
       {/* Modal */}
       {modalOpen && selectedItem && (
