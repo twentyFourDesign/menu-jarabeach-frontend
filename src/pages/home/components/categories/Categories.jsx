@@ -75,17 +75,18 @@
 
 
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+// import { useSearchParams } from 'react-router-dom';
 import CategoryCard from './CategoryCard';
-import { apiEndpoints, queryKeys, useGetQuery } from '@services';
+// import { apiEndpoints, queryKeys, useGetQuery } from '@services';
 // import { getCategoriesAPI } from '../../services/apiService';
 import { getCategoriesAPI } from '@services/apiService';
 import { getMenuItemsAPI } from '@services/apiService';
 
 export default function Categories() {
-  const [searchParams, setSearchParams] = useSearchParams();
+  // const [searchParams, setSearchParams] = useSearchParams();
   const [selected, setSelected] = useState('');
-  let category = searchParams.get('category');
+  const [selectedCategoryId, setSelectedCategoryId] = useState('');
+  // let category = searchParams.get('category');
 
   // const { data: itemsListing, refetch: itemsListingRefetch } = useGetQuery(
   //   queryKeys.ITEMS_LISTING,
@@ -99,22 +100,21 @@ export default function Categories() {
   const [categoriesListing, setCategoriesListing] = useState([]);
   const [itemsListing, setItemsListing] = useState([]);
 
-  function handleCategorySelect(category) {
-    setSelected(category);
-    setSearchParams({
-      category,
-    });
+  function handleCategorySelect(category, category_name) {
+    setSelected(category_name);
+    // setSearchParams({
+    //   category,
+    // });
+    setSelectedCategoryId(category);
   }
 
   useEffect(() => {
     const fetchData = async () => {
       const categories = await getCategoriesAPI();
       const menu_itmes = await getMenuItemsAPI();
-      console.log(categories);
       if(categories) {
         setCategoriesListing(categories);
       }
-      console.log(menu_itmes.data.items);
       if(menu_itmes) {
         setItemsListing(menu_itmes);
       }
@@ -123,8 +123,8 @@ export default function Categories() {
     fetchData();
 
     // itemsListingRefetch();
-    if (!category) setSearchParams({});
-  }, [category]);
+    // if (!category) setSearchParams({});
+  }, [selectedCategoryId]);
 
   
   return (
@@ -136,7 +136,7 @@ export default function Categories() {
       <div className="my-8">
         <ul className="flex gap-3 flex-wrap ">
           <li
-            onClick={() => handleCategorySelect('')}
+            onClick={() => handleCategorySelect('', '')}
             className={`rounded-full ${
               selected === '' ? 'bg-[#FFD664] text-black' : ''
             }  cursor-pointer text-[#01A3D2] list-none border border-sky-100  px-[10px]  py-0.5  bg-[#EEEEEE]`}
@@ -145,7 +145,7 @@ export default function Categories() {
           </li>
           {categoriesListing?.data?.items?.map((category, index) => (
             <li
-              onClick={() => handleCategorySelect(category?.category_name)}
+              onClick={() => handleCategorySelect(category?.category_id, category?.category_name)}
               className={`rounded-full ${
                 selected === category.category_name ? 'bg-[#FFD664] text-black' : ''
               }  cursor-pointer text-[#01A3D2] list-none border border-sky-100  px-[10px]  py-0.5  bg-[#EEEEEE]`}
@@ -163,7 +163,7 @@ export default function Categories() {
         >
           {selected === '' ? 'All Categories' : selected}
         </p>
-        <CategoryCard categories = {categoriesListing} items={itemsListing} />
+        <CategoryCard categories = {categoriesListing} items={itemsListing} selected = {selectedCategoryId} />
       </div>
     </div>
   );
