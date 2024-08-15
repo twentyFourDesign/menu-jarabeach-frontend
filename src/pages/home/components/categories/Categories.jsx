@@ -111,9 +111,7 @@ export default function Categories() {
   useEffect(() => {
     const fetchData = async () => {
       const categories = await getCategoriesAPI();
-      console.log(categories, '---->')
       const menu_itmes = await getMenuItemsAPI();
-      console.log(menu_itmes, 'mitttt')
       if(categories) {
         setCategoriesListing(categories);
       }
