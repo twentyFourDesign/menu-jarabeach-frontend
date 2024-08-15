@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const api = 'http://165.227.82.135:8081/api';
+const api = '/api';
 
 export const getCategoriesAPI = async () => {
   try {
