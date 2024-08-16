@@ -70,10 +70,13 @@ export default function CategoryCard({ categories, items, selected }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('');
-
+const [imageUrl, setimageUrl] = useState('');
+  const baseUrl = 'https://sabis.jarabeachresort.com/admintool/upload/mi/';
+  
   // Function to handle click on the title
   const handleTitleClick = (item) => {
     setSelectedItem(item);
+    setimageUrl(baseUrl+item.menu_item_id+'_'+item.menu_item_img[0]);
     setModalOpen(true);
   };
 
@@ -130,7 +133,7 @@ export default function CategoryCard({ categories, items, selected }) {
       {modalOpen && selectedItem && (
         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-800 bg-opacity-50 z-50 p-4">
           <div className="bg-white p-8 rounded-lg w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto">
-            <img src={selectedItem.menu_item_img[0]} alt={selectedItem.menu_item_title} className="w-full object-contain h-48 sm:h-64 md:h-80 lg:h-96" />
+            <img src={imageUrl} alt={selectedItem.menu_item_title} className="w-full object-contain h-48 sm:h-64 md:h-80 lg:h-96" />
             <p className="text-xl sm:text-2xl md:text-3xl font-bold mt-4">{selectedItem.menu_item_cost}</p>
             <p className="mt-2 text-sm sm:text-base md:text-lg">{selectedItem.menu_item_desc}</p>
             <button onClick={closeModal} className="mt-4 bg-[#01A3D2] text-white px-4 py-2 rounded-md">Close</button>
