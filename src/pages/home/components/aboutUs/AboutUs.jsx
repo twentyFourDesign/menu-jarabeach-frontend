@@ -61,7 +61,7 @@ export default function AboutUs() {
             your day.
           </p>
         </div>
-        <img src={sign} className="absolute top-0 right-0 h-[15rem] w-[25rem] md:h-[25rem] md:w-[40rem] hidden md:block" alt="Sign" />
+        {/* <img src={sign} className="absolute top-0 right-0 h-[15rem] w-[25rem] md:h-[25rem] md:w-[40rem] hidden md:block" alt="Sign" /> */}
       </div>
     </div>
   );
