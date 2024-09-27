@@ -1,4 +1,4 @@
-import hero from '../../../../assets/images/jera-hero.jpeg';
+import hero from '../../../../assets/images/header-hero.jpg';
 
 export default function Hero() {
   return (

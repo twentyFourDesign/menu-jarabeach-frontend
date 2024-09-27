@@ -115,6 +115,9 @@ const [imageUrl, setimageUrl] = useState('');
                             {/* Title with click event */}
                             <p onClick={() => handleTitleClick(item)} className="cursor-pointer">{item.menu_item_title}</p>
                             {/* End of Title */}
+                            {item.menu_item_desc ? (
+                              <p className="text-[#616161] text-[13px]">{item.menu_item_desc}</p>
+                            ) : null}
                             <div className="flex items-center">
                               <span className="text-[9px] font-raleway text-[#7C8F96]">NGN</span>
                               <p className="text-[25px] p-2 font-raleway leading-6 font-bold">{item.menu_item_cost}</p>
