@@ -120,7 +120,7 @@ const [imageUrl, setimageUrl] = useState('');
                             ) : null}
                             <div className="flex items-center">
                               <span className="text-[9px] font-raleway text-[#7C8F96]">NGN</span>
-                              <p className="text-[25px] p-2 font-raleway leading-6 font-bold">{item.menu_item_cost}</p>
+                              <p className="text-[25px] p-2 font-raleway leading-6 font-bold">{item.menu_item_cost ? Number(item.menu_item_cost).toLocaleString("en-NG") : 0}</p>
                             </div>
                           </div>
                         );
@@ -137,7 +137,7 @@ const [imageUrl, setimageUrl] = useState('');
         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-800 bg-opacity-50 z-50 p-4">
           <div className="bg-white p-8 rounded-lg w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto">
             <img src={imageUrl} alt={selectedItem.menu_item_title} className="w-full object-contain h-48 sm:h-64 md:h-80 lg:h-96" />
-            <p className="text-xl sm:text-2xl md:text-3xl font-bold mt-4">{selectedItem.menu_item_cost}</p>
+            <p className="text-xl sm:text-2xl md:text-3xl font-bold mt-4">{selectedItem.menu_item_cost ? Number(selectedItem.menu_item_cost).toLocaleString("en-NG") : 0}</p>
             <p className="mt-2 text-sm sm:text-base md:text-lg">{selectedItem.menu_item_desc}</p>
             <button onClick={closeModal} className="mt-4 bg-[#01A3D2] text-white px-4 py-2 rounded-md">Close</button>
           </div>
