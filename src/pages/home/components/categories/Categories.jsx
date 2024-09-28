@@ -130,7 +130,7 @@ export default function Categories() {
   return (
     <div className="mt-[4.25rem] lg:px-[6.25rem] md:px-[2.25rem] sm:px-0 font-raleway overflow-hidden">
       <p className="text-[2rem] font-normal leading-10 font-inter">Categories</p>
-      <p className="leading-5 mt-3 font-inter text-[#7C8F96]">Explore menu items under each category </p>
+      <p className="leading-5 mt-3 font-inter text-[#7C8F96]">The Terrace Menu is available for Lunch and Dinner for overnight guests. 1 Main Course choice Per Guest + Side where applicable. The Paid Menu and Shop are available to all guests.<br/><br/>Please note some of our dishes may contain traces of nuts. For guests with a special dietary requirement or allergies who may wish to know more about the food ingredients used, please a member of a food and beverage team. In serious cases, the chef is of course on hand to discuss with you. Vegetarian dishes highted with a Ⓥ</p>
 
       {/* categories list slection */}
       <div className="my-8">
