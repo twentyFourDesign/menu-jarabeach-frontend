@@ -6,7 +6,7 @@ import Navbar from './navbar/Navbar';
 
 export function Home() {
   return (
-    <main className="bg-[#f6f3f3] ">
+    <main className="bg-[#ffffff] ">
       <Hero />
       <Categories />
       <AboutUs />
